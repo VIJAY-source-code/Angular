@@ -1,0 +1,17 @@
+<h2>Categories</h2>
+<div *ngFor="let category of categories">
+  <button (click)="loadProducts(category)">{{ category }}</button>
+</div>
+
+<h2>Products</h2>
+<div *ngFor="let product of products" (click)="viewProduct(product.id)">
+  <h3>{{ product.title }}</h3>
+  <img [src]="product.image" width="100">
+  <p>Price: ${{ product.price }}</p>
+</div>
+
+<h2>Search</h2>
+<input type="text" [(ngModel)]="searchQuery" (input)="searchProducts()" placeholder="Search products...">
+<div *ngFor="let product of searchResults" (click)="viewProduct(product.id)">
+  <h3>{{ product.title }}</h3>
+</div>
